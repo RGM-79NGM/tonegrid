@@ -1,0 +1,20 @@
+### Requirements
+
+## home-page
+1. change the header logo to a cross beside the app name: <logo><Mapple>
+
+2. add a searchbar at the top to search habits
+
+3. On the right side add 3 buttons:
+- reorder Results
+- create habit
+- habitlist
+
+4. Add user button with the user name on the right corner
+
+5. add more lateral padding(5-10) in the main body 
+
+6. Add 'log today ->' button when expanding habit card
+
+7. 
+
