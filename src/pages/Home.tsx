@@ -7,15 +7,12 @@ export const Home = () => {
 	const tempHabit = {
 		name: 'Read books',
 		type: 'CHECKBOX',
-		colorTheme: 'terminal',
+		colorTheme: 'rose',
 		days: generateHabitDays(),
 	};
 
 	return (
-		<div
-			className='flex min-h-0 flex-1 flex-col gap-5 bg-red-300 px-[7%]
-				lg:px-[7%]'
-		>
+		<div className='flex min-h-0 flex-1 flex-col gap-5 px-[7%] lg:px-[7%]'>
 			{!habits?.length ? (
 				<main
 					className='flex flex-1 items-center justify-center md:text-xl
