@@ -1,27 +1,89 @@
-import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
+import { Icon } from '@iconify/react';
+// import logo from '../../public/logo-3.svg';
 
 export const Header = () => {
 	const navigate = useNavigate();
 
 	return (
-		<div className="flex items-center justify-between pr-10 pl-2.5">
-			<button
-				onClick={() => navigate('/')}
-				className="relative flex cursor-pointer flex-col items-center leading-0.5"
+		<div
+			className='grid grid-cols-[0.2fr_2fr_1fr] items-center justify-between
+				gap-5 bg-[#2C2D31] py-1.25 pl-[7.2%]'
+		>
+			<div className='flex w-full items-center justify-center p-2'>
+				<div className='justify-self-start rounded-md bg-rose-600 px-3 py-0.5'>
+					<button
+						onClick={() => navigate('/')}
+						className='font-anton cursor-pointer font-extrabold
+							tracking-[0.04em] text-[#fafafaff] lg:text-[19px]'
+					>
+						MAPLe
+					</button>
+				</div>
+			</div>
+
+			{/* Search bar */}
+			<div
+				className='flex h-8 w-full items-center gap-2 rounded-md bg-white px-2
+					text-zinc-800'
 			>
-				<img src="/logo2.svg" alt="" className="md:w-16 lg:w-32" />
+				<button
+					className='h-full justify-self-start border-r border-black/50 pr-2
+						pl-1.25 text-sm font-medium'
+				>
+					All
+				</button>
+				<input
+					type='text'
+					placeholder='Search habits'
+					className='w-full border-0 px-2 py-1.25 text-sm outline-none
+						focus:ring-0'
+				/>
+				<button className='px-2'>
+					<Icon
+						icon='akar-icons:search'
+						className='size-4 text-zinc-500'
+					></Icon>
+				</button>
+			</div>
 
-				<span className="text-base1 absolute bottom-5.5 left-[18%] font-semibold lg:text-lg">
-					Tonegrid
-				</span>
-			</button>
+			{/* Right icons */}
+			<div className='flex items-center gap-2'>
+				<button
+					className='flex h-10 cursor-pointer items-center justify-center
+						gap-1.25 rounded-full px-3 text-sm font-medium transition
+						duration-250 hover:bg-white/10'
+				>
+					<Icon icon='akar-icons:grid' className='size-5 lg:size-5' />
+					Habitlist
+					<span className='rounded-full bg-rose-600 px-1.25 text-[13px]'>
+						{0}
+					</span>
+					<div></div>
+				</button>
 
-			<Icon
-				onClick={() => navigate('/settings')}
-				className="hover:text-primary cursor-pointer transition duration-100 sm:size-4.5 md:size-5 lg:size-5.5 xl:size-5.5"
-				icon="mdi:settings"
-			/>
+				<button
+					className='flex h-10 cursor-pointer items-center justify-center
+						gap-1.25 rounded-full px-3 text-sm font-medium transition
+						duration-250 hover:bg-white/10'
+				>
+					<Icon
+						icon='boxicons:user-circle-filled'
+						onClick={() => navigate('/settings')}
+						className='size-5 cursor-pointer transition duration-100 sm:size-4.5
+							lg:size-6 xl:size-6.5'
+					/>
+					<span>yvy</span>
+					<div>
+						<Icon
+							icon='akar-icons:triangle-down-fill'
+							onClick={() => navigate('/settings')}
+							className='hover:text-primary cursor-pointer transition
+								duration-100 sm:size-4.5 md:size-2 lg:size-2 xl:size-3'
+						/>
+					</div>
+				</button>
+			</div>
 		</div>
 	);
 };
