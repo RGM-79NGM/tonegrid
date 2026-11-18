@@ -156,7 +156,7 @@ export const CreateTracker = () => {
 										}}
 										className='size-3 rounded-sm'
 									></div>
-									{Object.keys(themes)[0]}
+									{Object.values(themes)[0]?.label}
 								</div>
 
 								<Icon icon='mdi:keyboard-arrow-down' />
