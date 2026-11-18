@@ -16,5 +16,14 @@
 
 6. Add 'log today ->' button when expanding habit card
 
-7. 
+7. Additional info on binary habit card expanded:
+- current streak
+- total entries. i.e: 10 days
+- average
+- Longest streak
+
+8. Additional info on amount habit card expanded:
+- Today. i.e: $10.00
+- Total. i.e: $3,231,000.000
+
 
