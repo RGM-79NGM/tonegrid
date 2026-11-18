@@ -7,7 +7,7 @@
 
 ⬜ 3. On the right side add 3 buttons:
 - reorder Results - ok
-- create habit - 
+- create habit -
 - habitlist - ok
 
 ✅ 4. Add user button with the user name on the right corner
@@ -22,15 +22,15 @@
 - average
 - Longest streak
 
-⬜8. Additional info on amount habit card expanded:
+⬜ 8. Additional info on amount habit card expanded:
 - Today. i.e: $10.00
 - Total. i.e: $3,231,000.000
 
-⬜ 9. create the header component that appears everywhere
+✅ 9. create the header component that appears everywhere
 
 ⬜ 10. design the footer on tldraw; create the footer component
 
-⬜ 11. add the prettier config and install prettier plugins to sort tailwind classes and css
+✅ 11. add the prettier config and install prettier plugins to sort tailwind classes and css
 
 ✅ 12. change the highlight color to rose akashi
 
