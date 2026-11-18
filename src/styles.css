@@ -21,8 +21,10 @@
 	--font-anton: 'Anton', cursive;
 
 	--color-primary: #79a617;
+	--color-highlight: #ec003f;
 	--color-bg: #191a1b;
 	--color-bg2: #141516;
+	--color-bg-header: ##121212;
 	--color-base1: rgb(231, 234, 224);
 	--color-base2: rgb(72, 73, 75);
 }
