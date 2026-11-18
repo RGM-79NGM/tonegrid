@@ -50,11 +50,23 @@ export const Header = () => {
 			{/* Right icons */}
 			<div className='flex items-center gap-2'>
 				<button
+					title='Create new tracker'
+					onClick={() => {
+						navigate('/create-habit');
+					}}
 					className='flex h-10 cursor-pointer items-center justify-center
 						gap-1.25 rounded-full px-3 text-sm font-medium transition
 						duration-250 hover:bg-white/10'
 				>
-					<Icon icon='akar-icons:grid' className='size-5 lg:size-5' />
+					<Icon icon='boxicons:grid-plus-filled' className='size-5 lg:size-5' />
+				</button>
+
+				<button
+					className='flex h-10 cursor-pointer items-center justify-center
+						gap-1.25 rounded-full px-3 text-[13px] font-medium uppercase
+						transition duration-250 hover:bg-white/10'
+				>
+					{/* <Icon icon='akar-icons:grid' className='size-5 lg:size-5' /> */}
 					Habitlist
 					<span className='rounded-full bg-rose-600 px-1.25 text-[13px]'>
 						{0}
