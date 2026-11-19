@@ -54,7 +54,7 @@ export const CreateTracker = () => {
 				}}
 				className='flex w-[90%] flex-col items-center py-5 lg:w-[70%]'
 			>
-				<h1 className='text-3xl'>Create a new habit to track</h1>
+				<h1 className='font-nunito text-3xl'>Create a new tracker</h1>
 
 				{/* Fields */}
 				<div
