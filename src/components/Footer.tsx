@@ -1,3 +1,5 @@
+import { Icon } from '@iconify/react';
+
 export const Footer = () => {
 	return (
 		<div
@@ -5,13 +7,19 @@ export const Footer = () => {
 				pb-5.5'
 		>
 			<div className='flex gap-15'>
-				<a href='/contact' className='hover:underline'>
-					Contact
-				</a>
+				<div className='flex items-center gap-1'>
+					<a href='/contact' className='hover:underline'>
+						Contact
+					</a>
+					<Icon icon='bx:link-external' className='size-3.75 text-white' />
+				</div>
 
-				<a href='/' target='_blank' className='hover:underline'>
-					Home
-				</a>
+				<div className='flex items-center gap-1'>
+					<a href='/' target='_blank' className='hover:underline'>
+						Home
+					</a>
+					<Icon icon='bx:link-external' className='size-3.75 text-white' />
+				</div>
 
 				<a href='/about' className='hover:underline'>
 					About
