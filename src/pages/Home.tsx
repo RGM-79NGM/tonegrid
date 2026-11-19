@@ -25,10 +25,10 @@ export const Home = () => {
 					No trackers found
 				</main>
 			) : (
-				<main className='flex flex-col items-center gap-3 py-2'>
+				<main className='flex flex-col items-center gap-5 py-20'>
 					{habits.map((habit, i) => (
 						<div key={i} className='w-full'>
-							<HeatMap2 habit={tempHabit} />
+							<HeatMap2 habit={habit} />
 						</div>
 					))}
 				</main>
