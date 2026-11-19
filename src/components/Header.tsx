@@ -7,8 +7,8 @@ export const Header = () => {
 
 	return (
 		<div
-			className='grid grid-cols-[0.2fr_2fr_1fr] items-center justify-between
-				gap-5 bg-[#2C2D31] py-1.25 pl-[7.2%]'
+			className='bg-bg2 grid grid-cols-[0.2fr_2fr_1fr] items-center
+				justify-between gap-5 py-1.25 pl-[7.2%]'
 		>
 			<div className='flex w-full items-center justify-center p-2'>
 				<div className='justify-self-start rounded-md bg-rose-600 px-3 py-0.5'>
@@ -28,10 +28,16 @@ export const Header = () => {
 					text-zinc-800'
 			>
 				<button
-					className='h-full justify-self-start border-r border-black/50 pr-2
-						pl-1.25 text-sm font-medium'
+					className='flex h-full items-center gap-2 justify-self-start border-r
+						border-black/50 pr-2 pl-1.25 text-sm font-medium'
 				>
 					All
+					<Icon
+						icon='akar-icons:triangle-down-fill'
+						onClick={() => navigate('/settings')}
+						className='cursor-pointer transition duration-100 sm:size-4.5
+							md:size-2 lg:size-2 xl:size-3'
+					/>
 				</button>
 				<input
 					type='text'
@@ -67,7 +73,7 @@ export const Header = () => {
 						gap-1.25 rounded-full px-3 uppercase transition duration-250
 						hover:bg-white/10'
 				>
-					<span className='text-[13px] font-semibold'>Habitlist</span>
+					<span className='pt-1 text-[13px] font-semibold'>Trackerlist</span>
 					<span
 						className='rounded-full bg-rose-600 px-2 py-px text-xs font-bold'
 					>
@@ -91,8 +97,8 @@ export const Header = () => {
 						<Icon
 							icon='akar-icons:triangle-down-fill'
 							onClick={() => navigate('/settings')}
-							className='hover:text-highlight cursor-pointer transition
-								duration-100 sm:size-4.5 md:size-2 lg:size-2 xl:size-3'
+							className='cursor-pointer transition duration-100 sm:size-4.5
+								md:size-2 lg:size-2 xl:size-3'
 						/>
 					</div>
 				</button>
