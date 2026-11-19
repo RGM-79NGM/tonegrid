@@ -160,13 +160,23 @@ export const HeatMap2 = ({ habit }) => {
 								: 'invisible -translate-y-1.5 grid-rows-[0fr] opacity-0'
 						} `}
 				>
-					<div className='overflow-hidden'>
+					<div
+						className='flex items-center justify-between overflow-hidden pr-10'
+					>
 						<div className='flex w-full flex-col gap-0.75 p-2 text-sm'>
 							<span>Current streak: 3</span>
 							<span>Longest streak: 20</span>
 							<span>Average: 2</span>
 							<span>Total entries: 10 days</span>
 						</div>
+						<button
+							className='flex cursor-pointer gap-2 rounded-md bg-white/20 px-4
+								py-2 whitespace-nowrap transition duration-300 *:items-center
+								hover:bg-white/30'
+						>
+							Log today
+							<Icon icon='streamline-ultimate:pen-write' className='' />
+						</button>
 					</div>
 				</div>
 			</div>
