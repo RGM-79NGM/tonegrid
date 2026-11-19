@@ -18,7 +18,7 @@ export const Select = ({ showDropDown, setShowDropDown }) => {
 	];
 
 	return (
-		<div className='relative flex w-24 flex-col gap-2 lg:w-46 xl:w-56'>
+		<div className='relative flex w-24 flex-col gap-2 lg:w-32'>
 			<button
 				onClick={() => setShowDropDown((prev) => !prev)}
 				className='border-bg flex cursor-pointer items-center justify-between
@@ -53,8 +53,9 @@ export const Select = ({ showDropDown, setShowDropDown }) => {
 							}
 							setShowDropDown((prev) => !prev);
 						}}
-						className='bg-bg2 text-base1 hover:bg-bg flex cursor-pointer
-							items-center gap-2 rounded-t-md px-6 py-2 transition duration-150'
+						className='bg-bg2 hover:bg-bg flex cursor-pointer items-center gap-2
+							rounded-t-md px-6 py-2 text-sm transition duration-150
+							max-sm:text-[11px]'
 					>
 						{range?.label || '-'}
 					</li>
