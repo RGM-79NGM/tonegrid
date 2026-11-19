@@ -5,9 +5,11 @@ import { Icon } from '@iconify/react';
 import { Select } from '../heat-map/Select';
 
 export const HeatMap2 = ({ habit }) => {
+	console.log(habit);
 	const [currentHabit, setCurrentHabit] = useState(habit);
 	const [changed, setChanged] = useState(false);
 	const [showDropdown, setShowDropdown] = useState(false);
+	const [expandedTracker, setExpandedTracker] = useState(null);
 	const theme = returnColorTheme(habit.colorTheme);
 	console.log('🐟 - HeatMap2 - habit:', habit);
 	// console.log('🐟 - HeatMap2 - theme:', theme);
@@ -69,11 +71,21 @@ export const HeatMap2 = ({ habit }) => {
 							</div>
 							more
 						</div>
-						<Icon
-							// onClick={() => setIsCollapsed((prev) => !prev)}
-							icon='mdi:keyboard-arrow-down'
-							className='text-base1 text-lg'
-						/>
+						<div className='cursor-pointer rounded-full p-px hover:bg-white/10'>
+							<Icon
+								onClick={() =>
+									setExpandedTracker(() => {
+										if (expandedTracker === habit.id) {
+											setExpandedTracker(null);
+										} else {
+											setExpandedTracker(habit.id);
+										}
+									})
+								}
+								icon='mdi:keyboard-arrow-down'
+								className='text-base1 text-lg'
+							/>
+						</div>
 					</div>
 				</header>
 
@@ -83,13 +95,13 @@ export const HeatMap2 = ({ habit }) => {
 							text-[15px] leading-1 xl:grid
 							xl:grid-rows-[repeat(7,var(--cell-size))]'
 					>
-						<div className='opacity-0'>sunday</div>
+						<div className='opacity-0'>sun</div>
 						<div>mon</div>
-						<div className='opacity-0'>tuesday</div>
+						<div className='opacity-0'>tue</div>
 						<div>wed</div>
-						<div className='opacity-0'>thursday</div>
+						<div className='opacity-0'>thu</div>
 						<div>fri</div>
-						<div className='opacity-0'>saturday</div>
+						<div className='opacity-0'>sat</div>
 					</div>
 
 					{/* Activity blocks */}
@@ -139,6 +151,24 @@ export const HeatMap2 = ({ habit }) => {
 						})}
 					</div>
 				</main>
+
+				<div
+					className={`grid w-full flex-col gap-0.75 text-sm transition-all
+						duration-400 ease-in-out ${
+							expandedTracker === habit.id
+								? 'visible translate-y-1.5 grid-rows-[1fr] opacity-100'
+								: 'invisible -translate-y-1.5 grid-rows-[0fr] opacity-0'
+						} `}
+				>
+					<div className='overflow-hidden'>
+						<div className='flex w-full flex-col gap-0.75 p-2 text-sm'>
+							<span>Current streak: 3</span>
+							<span>Longest streak: 20</span>
+							<span>Average: 2</span>
+							<span>Total entries: 10 days</span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
