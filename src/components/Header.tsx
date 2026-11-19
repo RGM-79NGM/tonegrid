@@ -62,16 +62,17 @@ export const Header = () => {
 				</button>
 
 				<button
+					onClick={() => navigate('/')}
 					className='flex h-10 cursor-pointer items-center justify-center
-						gap-1.25 rounded-full px-3 text-[13px] font-medium uppercase
-						transition duration-250 hover:bg-white/10'
+						gap-1.25 rounded-full px-3 uppercase transition duration-250
+						hover:bg-white/10'
 				>
-					{/* <Icon icon='akar-icons:grid' className='size-5 lg:size-5' /> */}
-					Habitlist
-					<span className='rounded-full bg-rose-600 px-1.25 text-[13px]'>
-						{0}
+					<span className='text-[13px] font-semibold'>Habitlist</span>
+					<span
+						className='rounded-full bg-rose-600 px-2 py-px text-xs font-bold'
+					>
+						04
 					</span>
-					<div></div>
 				</button>
 
 				<button
@@ -90,7 +91,7 @@ export const Header = () => {
 						<Icon
 							icon='akar-icons:triangle-down-fill'
 							onClick={() => navigate('/settings')}
-							className='hover:text-primary cursor-pointer transition
+							className='hover:text-highlight cursor-pointer transition
 								duration-100 sm:size-4.5 md:size-2 lg:size-2 xl:size-3'
 						/>
 					</div>
