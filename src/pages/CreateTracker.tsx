@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { themes } from '../constants/themes';
 import { habitTypes } from '../constants/habitType';
+import { generateHabitDays } from '../calculations/generateHabitDays';
 
 interface Habit {
 	name?: string;
 	colorTheme?: string;
-	entries?: object[];
+	days?: object[];
 	type?: string;
 }
 
@@ -15,7 +16,7 @@ export const CreateTracker = () => {
 	const navigate = useNavigate();
 	const [newHabit, setNewHabit] = useState<Habit>({
 		colorTheme: Object.keys(themes)[0],
-		entries: [],
+		days: generateHabitDays(),
 		type: habitTypes[0].value,
 	});
 	const [showColorDropdown, setShowColorDropdown] = useState(false);
@@ -38,6 +39,7 @@ export const CreateTracker = () => {
 	function handleSave() {
 		if (!validate()) return;
 
+		console.log('New tracker ready to be stored: ', newHabit);
 		const currentHabits = JSON.parse(localStorage.getItem('habits') || '[]');
 		const mergedHabits = [...currentHabits, newHabit];
 		localStorage.setItem('habits', JSON.stringify(mergedHabits));
@@ -141,6 +143,7 @@ export const CreateTracker = () => {
 						</div>
 					</div>
 
+					{/* Select the theme */}
 					<div className='flex flex-col gap-1'>
 						Pick a color
 						<div className='relative flex flex-col gap-2'>
@@ -156,7 +159,7 @@ export const CreateTracker = () => {
 										}}
 										className='size-3 rounded-sm'
 									></div>
-									{Object.values(themes)[0]?.label}
+									{themes[newHabit.colorTheme]?.label}
 								</div>
 
 								<Icon icon='mdi:keyboard-arrow-down' />
