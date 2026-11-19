@@ -10,14 +10,11 @@
 ## home-page
 ✅ 1. change the header logo to a cross beside the app name: <logo><Mapple>
 ✅ 2. add a searchbar at the top to search habits
-✅ 3. on the right side add 3 buttons:
-- reorder Results - ok
-- create habit - ok
-- habitlist - ok
+✅ 3. on the right side add 3 buttons: reorder, create habit, trackerlist
 ✅ 4. add user button with the user name on the right corner
 ✅ 5. decrease lateral padding(5-10) in the main body 
-⬜ 6. add 'log today ->' button when expanding habit card
-⬜ 7. additional info on binary habit card expanded:
+✅ 6. add 'log today ->' button when expanding habit card
+✅ 7. additional info on binary habit card expanded:
 - current streak
 - total entries. i.e: 10 days
 - average
@@ -26,11 +23,26 @@
 - Today. i.e: $10.00
 - Total. i.e: $3,231,000.000
 ✅ 9. create the header component that appears everywhere
-⬜ 10. design the footer on tldraw; create the footer component
+✅ 10. design the footer on tldraw; create the footer component
 ✅ 11. add the prettier config and install prettier plugins to sort tailwind classes and css
 ✅ 12. change the highlight color to rose akashi
 ✅ 13. fix the text proportion in map card 
 ✅ 14. style scrollbar 
 ✅ 15. choose a second font to be the main one, only use anton for the logo, and the mono font for highlights like titles   
+✅ 16. Add the selected theme color to the new tracker when creating one 
+17. Add delete button to delete habits when heatmap is expanded
+18.
+19.
+20.
+21.
+22.
+23.
+24.
+25.
+
+
+
+
+
 
 
