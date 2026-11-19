@@ -5,22 +5,21 @@ import { Icon } from '@iconify/react';
 import { Select } from '../heat-map/Select';
 
 export const HeatMap2 = ({ habit }) => {
-	console.log(habit);
+	console.log('Habit that the heatmap got:', habit);
 	const [currentHabit, setCurrentHabit] = useState(habit);
 	const [changed, setChanged] = useState(false);
 	const [showDropdown, setShowDropdown] = useState(false);
 	const [expandedTracker, setExpandedTracker] = useState(null);
 	const theme = returnColorTheme(habit.colorTheme);
-	console.log('🐟 - HeatMap2 - habit:', habit);
 	// console.log('🐟 - HeatMap2 - theme:', theme);
-	// console.log('🐟 - HeatMap2 - habit:', habit);
+	console.log('🐟 - HeatMap2 - habit:', habit);
 
 	useEffect(() => {}, [changed]);
 
 	return (
 		<div
 			onBlur={() => setShowDropdown(false)}
-			className='flex flex-1 justify-center py-20'
+			className='flex flex-1 justify-center'
 		>
 			<div
 				className='bg-bg2 w-[clamp(200px, 90vw,1200px)] flex flex-col
@@ -153,8 +152,8 @@ export const HeatMap2 = ({ habit }) => {
 				</main>
 
 				<div
-					className={`grid w-full flex-col gap-0.75 text-sm transition-all
-						duration-400 ease-in-out ${
+					className={`grid w-full flex-col gap-0.75 transition-all duration-400
+						ease-in-out ${
 							expandedTracker === habit.id
 								? 'visible translate-y-1.5 grid-rows-[1fr] opacity-100'
 								: 'invisible -translate-y-1.5 grid-rows-[0fr] opacity-0'
@@ -163,7 +162,10 @@ export const HeatMap2 = ({ habit }) => {
 					<div
 						className='flex items-center justify-between overflow-hidden pr-10'
 					>
-						<div className='flex w-full flex-col gap-0.75 p-2 text-sm'>
+						<div
+							className='flex w-full flex-col p-2 text-sm leading-tight
+								max-[650px]:text-[11px]'
+						>
 							<span>Current streak: 3</span>
 							<span>Longest streak: 20</span>
 							<span>Average: 2</span>

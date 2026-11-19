@@ -4,7 +4,6 @@ import { Icon } from '@iconify/react';
 export const Select = ({ showDropDown, setShowDropDown }) => {
 	const currentYear = String(new Date().getFullYear());
 	const [selectedDateRange, setSelectedDateRange] = useState(currentYear);
-	console.log('🐟 - Select - currentYear:', currentYear);
 
 	const dateRange = [
 		{
