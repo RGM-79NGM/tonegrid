@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 
 export const Header = () => {
 	const navigate = useNavigate();
+	const totalHabits = JSON.parse(localStorage.getItem('habits') || '[]').length;
 
 	return (
 		<div
@@ -77,7 +78,7 @@ export const Header = () => {
 					<span
 						className='rounded-full bg-rose-600 px-2 py-px text-xs font-bold'
 					>
-						04
+						{String(totalHabits).padStart(2, '0')}
 					</span>
 				</button>
 
