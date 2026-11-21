@@ -22,6 +22,30 @@ export function generateHabitDays() {
 						.add(i - firstWeekDay, 'day')
 						.format('YYYY-MM-DD'),
 			checked: false,
+			notes: '',
+		};
+	});
+	console.log('🐟 - generateHabitDays - habitDays:', habitDays);
+
+	return habitDays;
+}
+
+export function generateAmountTrackerDays() {
+	const daysNotIncluded = returnExcludedDays();
+	// console.log('🐟 - generateHabitDays - daysNotIncluded:', daysNotIncluded);
+	const habitDays = Array.from({ length: 371 }, (_, i) => i).map((item, i) => {
+		const isNotIncluded = daysNotIncluded.includes(i);
+
+		return {
+			dayIndex: i,
+			dayNumber: isNotIncluded ? null : i - firstWeekDay,
+			dayLabel: isNotIncluded
+				? null
+				: dayjs(`${year}-01-01`)
+						.add(i - firstWeekDay, 'day')
+						.format('YYYY-MM-DD'),
+			amount: 0,
+			notes: '',
 		};
 	});
 	console.log('🐟 - generateHabitDays - habitDays:', habitDays);
