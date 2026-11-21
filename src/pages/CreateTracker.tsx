@@ -5,7 +5,7 @@ import { themes } from '../constants/themes';
 import { habitTypes } from '../constants/habitType';
 import { generateHabitDays } from '../calculations/generateHabitDays';
 
-interface Habit {
+interface Tracker {
 	name?: string;
 	colorTheme?: string;
 	days?: object[];
@@ -14,7 +14,7 @@ interface Habit {
 
 export const CreateTracker = () => {
 	const navigate = useNavigate();
-	const [newHabit, setNewHabit] = useState<Habit>({
+	const [newHabit, setNewHabit] = useState<Tracker>({
 		colorTheme: Object.keys(themes)[0],
 		days: generateHabitDays(),
 		type: habitTypes[0].value,
