@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import { RootLayout } from './pages/RootLayout';
-import { Home } from './pages/Home';
-import { Settings } from './pages/Settings';
-import { NotFound } from './pages/NotFound';
 import { CreateTracker } from './pages/CreateTracker';
+import { Home } from './pages/Home';
+import { NotFound } from './pages/NotFound';
 import { Prototype } from './pages/Prototype';
+import { RootLayout } from './pages/RootLayout';
+import { Settings } from './pages/Settings';
 
 export const App = () => (
 	<Routes>
