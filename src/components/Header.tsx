@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
+import { useNavigate } from 'react-router-dom';
 // import logo from '../../public/logo-3.svg';
 
 export const Header = () => {
@@ -75,9 +75,7 @@ export const Header = () => {
 						hover:bg-white/10'
 				>
 					<span className='pt-1 text-[13px] font-semibold'>Trackerlist</span>
-					<span
-						className='rounded-full bg-rose-600 px-2 py-px text-xs font-bold'
-					>
+					<span className='rounded-full bg-rose-600 px-2 py-px text-xs font-bold'>
 						{String(totalHabits).padStart(2, '0')}
 					</span>
 				</button>

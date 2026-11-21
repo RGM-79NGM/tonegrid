@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { Icon } from '@iconify/react';
+import { useState } from 'react';
 
 export const Select = ({ showDropDown, setShowDropDown }) => {
 	const currentYear = String(new Date().getFullYear());
@@ -40,7 +40,7 @@ export const Select = ({ showDropDown, setShowDropDown }) => {
 					showDropDown
 						? 'translate-y-0 opacity-100'
 						: 'pointer-events-none -translate-y-2 bg-transparent opacity-0'
-					} bg-bg2 border-bg2 absolute top-[105%] left-0 z-10 w-[90%] rounded-md
+				} bg-bg2 border-bg2 absolute top-[105%] left-0 z-10 w-[90%] rounded-md
 					border transition duration-200`}
 			>
 				{dateRange.map((range, i) => (

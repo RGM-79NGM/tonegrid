@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { Icon } from '@iconify/react';
+import { useState } from 'react';
 import Select from './Select';
 
 const HeatMap = ({ habit }) => {
@@ -56,32 +56,32 @@ const HeatMap = ({ habit }) => {
 	return (
 		<div
 			onBlur={() => setShowDropdown(false)}
-			className="bg-bg2 w-[clamp(200px,90vw,800px)] rounded-lg border border-[#1e1e1f] p-3"
+			className='bg-bg2 w-[clamp(200px,90vw,800px)] rounded-lg border border-[#1e1e1f] p-3'
 		>
-			<header className="flex w-full items-center justify-between pr-1 text-[18px] font-medium text-gray-200">
-				<div className="flex items-center gap-2">
+			<header className='flex w-full items-center justify-between pr-1 text-[18px] font-medium text-gray-200'>
+				<div className='flex items-center gap-2'>
 					<Select
 						showDropDown={showDropdown}
 						setShowDropDown={setShowDropdown}
 					/>
-					<div className="flex items-center gap-4">
-						<span className="text-base1 text-sm lg:text-base xl:text-lg">
+					<div className='flex items-center gap-4'>
+						<span className='text-base1 text-sm lg:text-base xl:text-lg'>
 							{habit?.name || '-'}
 						</span>
-						<span className="text-base2 text-sm lg:text-base">{`${habit?.entries?.length || '0'} days`}</span>
+						<span className='text-base2 text-sm lg:text-base'>{`${habit?.entries?.length || '0'} days`}</span>
 					</div>
 				</div>
-				<div className="flex h-full items-center gap-2 p-0.5">
+				<div className='flex h-full items-center gap-2 p-0.5'>
 					<Icon
 						onClick={() => setIsCollapsed((prev) => !prev)}
-						icon="mdi:keyboard-arrow-down"
-						className="text-base1 text-lg"
+						icon='mdi:keyboard-arrow-down'
+						className='text-base1 text-lg'
 					/>
 				</div>
 			</header>
-			<div className="mt-5 flex w-full gap-2">
-				<div className="flex w-full gap-1 rounded-sm">
-					<div className="flex w-full min-w-0 flex-col">
+			<div className='mt-5 flex w-full gap-2'>
+				<div className='flex w-full gap-1 rounded-sm'>
+					<div className='flex w-full min-w-0 flex-col'>
 						{/* Month labels */}
 						{/* <div></div> */}
 						{/* <div className="grid auto-cols-[10.8px] grid-flow-col gap-0.75"> */}
@@ -91,7 +91,7 @@ const HeatMap = ({ habit }) => {
 
 						{/* GRID */}
 						<div
-							className="grid grid-flow-col grid-cols-[repeat(53,8px)] grid-rows-[repeat(7,8px)] gap-px sm:grid-cols-[repeat(53,10px)] sm:grid-rows-[repeat(7,10px)] sm:gap-0.5 lg:grid-cols-[repeat(53,12px)] lg:grid-rows-[repeat(7,12px)] lg:gap-0.75" // style={{
+							className='grid grid-flow-col grid-cols-[repeat(53,8px)] grid-rows-[repeat(7,8px)] gap-px sm:grid-cols-[repeat(53,10px)] sm:grid-rows-[repeat(7,10px)] sm:gap-0.5 lg:grid-cols-[repeat(53,12px)] lg:grid-rows-[repeat(7,12px)] lg:gap-0.75' // style={{
 						>
 							{/* offset */}
 							{/* {Array.from({ length: firstDayOffset }, (_, i) => (
@@ -103,7 +103,7 @@ const HeatMap = ({ habit }) => {
 								<div
 									key={i}
 									title={day.yearDayName}
-									className="bg-primary aspect-square w-full cursor-pointer rounded-[1.6px]"
+									className='bg-primary aspect-square w-full cursor-pointer rounded-[1.6px]'
 								/>
 							))}
 						</div>
@@ -114,15 +114,15 @@ const HeatMap = ({ habit }) => {
 								isCollapsed ? 'max-h-0 opacity-0' : 'mt-4 max-h-125 opacity-100'
 							} flex items-center justify-between bg-blue-300 px-2 transition-all duration-150`}
 						>
-							<div className="flex flex-col gap-0 text-[12px]">
+							<div className='flex flex-col gap-0 text-[12px]'>
 								<span>Number of entries: 4</span>
 								<span>Average: 87.75 R$s</span>
 								<span>Total: 351.00 R$s</span>
 							</div>
 
-							<div className="flex max-h-25 min-h-7.5 gap-2 rounded-sm border border-gray-800 px-2 py-1 text-[13px]">
+							<div className='flex max-h-25 min-h-7.5 gap-2 rounded-sm border border-gray-800 px-2 py-1 text-[13px]'>
 								Today: 10 R$s
-								<span className="material-icons cursor-pointer rounded-md p-0.5 text-[14px]! transition duration-150 hover:text-gray-800">
+								<span className='material-icons cursor-pointer rounded-md p-0.5 text-[14px]! transition duration-150 hover:text-gray-800'>
 									edit
 								</span>
 							</div>
