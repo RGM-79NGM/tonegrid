@@ -1,0 +1,73 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"json": {
+		"parser": {
+			"allowComments": true,
+			"allowTrailingCommas": true
+		}
+	},
+	"files": {
+		"ignoreUnknown": false,
+		// ESLint: globalIgnores(['dist'])
+		"ignore": ["dist/**", "node_modules/**"]
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			// ESLint: js.configs.recommended & tseslint.configs.recommended
+			"recommended": true,
+			"correctness": {
+				// ESLint: reactHooks.configs.flat.recommended
+				"useExhaustiveDependencies": "warn",
+				"useHookAtTopLevel": "error"
+			},
+			"suspicious": {
+				// ESLint: '@typescript-eslint/no-explicit-any': 'off'
+				"noExplicitAny": "off"
+			},
+			"nursery": {
+				// Replaces: prettier-plugin-tailwindcss, prettier-plugin-classnames & prettier-plugin-merge
+				"useSortedClasses": {
+					"level": "error",
+					"options": {
+						"attributes": ["classList", "className"],
+						"functions": ["clsx", "cva", "twMerge", "cn"]
+					}
+				}
+			}
+		}
+	},
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": false,
+		// Prettier: printWidth: 80
+		"lineWidth": 80,
+		// Prettier: useTabs: true
+		"indentStyle": "tab",
+		// Prettier: tabWidth: 2
+		"indentWidth": 2
+	},
+	"javascript": {
+		"formatter": {
+			// Prettier: singleQuote: true
+			"quoteStyle": "single",
+			// Prettier: jsxSingleQuote: true
+			"jsxQuoteStyle": "single",
+			"semicolons": "always",
+			"trailingCommas": "all"
+		},
+		// ESLint: globals.browser
+		"globals": ["window", "document", "navigator"]
+	},
+	"css": {
+		"formatter": {
+			"enabled": true,
+			"indentStyle": "tab",
+			"indentWidth": 2,
+			"quoteStyle": "single"
+		}
+	}
+}
