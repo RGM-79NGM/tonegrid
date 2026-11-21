@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
-import { HeatMap2 } from '../components/heat-map-2/HeatMap2';
 import { generateHabitDays } from '../calculations/generateHabitDays';
+import { HeatMap2 } from '../components/heat-map-2/HeatMap2';
 
 export const Home = () => {
 	const habits = JSON.parse(localStorage.getItem('habits') || '[]');

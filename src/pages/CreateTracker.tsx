@@ -1,9 +1,9 @@
+import { Icon } from '@iconify/react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Icon } from '@iconify/react';
-import { themes } from '../constants/themes';
-import { habitTypes } from '../constants/habitType';
 import { generateHabitDays } from '../calculations/generateHabitDays';
+import { habitTypes } from '../constants/habitType';
+import { themes } from '../constants/themes';
 
 interface Tracker {
 	name?: string;
@@ -84,7 +84,7 @@ export const CreateTracker = () => {
 										? 'translate-y-0 opacity-100'
 										: `pointer-events-none -translate-y-2 bg-transparent
 											opacity-0`
-									} bg-bg2 border-bg2 absolute top-[105%] left-0 z-10 w-[90%]
+								} bg-bg2 border-bg2 absolute top-[105%] left-0 z-10 w-[90%]
 									rounded-md border transition duration-200`}
 							>
 								{habitTypes.map((habitType, i) => (
@@ -128,7 +128,7 @@ export const CreateTracker = () => {
 									? 'translate-y-0 opacity-100'
 									: `pointer-events-none -translate-y-2 bg-transparent
 										opacity-0`
-								} absolute top-[123%] left-[30%] flex items-center gap-2
+							} absolute top-[123%] left-[30%] flex items-center gap-2
 								rounded-sm bg-white p-3 text-sm font-semibold transition
 								duration-200`}
 						>
@@ -173,7 +173,7 @@ export const CreateTracker = () => {
 										? 'translate-y-0 opacity-100'
 										: `pointer-events-none -translate-y-2 bg-transparent
 											opacity-0`
-									} bg-bg2 border-bg2 absolute top-[105%] left-0 w-[90%]
+								} bg-bg2 border-bg2 absolute top-[105%] left-0 w-[90%]
 									rounded-md border transition duration-200`}
 							>
 								{Object.entries(themes).map(([name, theme]) => (

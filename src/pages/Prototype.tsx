@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
+import { useEffect, useState } from 'react';
 
 export const Prototype = () => {
 	const year = new Date().getFullYear();
@@ -50,9 +50,9 @@ export const Prototype = () => {
 	defineExcludedDays();
 
 	return (
-		<div className="flex flex-1 justify-center pt-20">
-			<div className="flex h-50 items-center justify-center rounded-md border border-gray-700 p-2">
-				<div className="grid grid-flow-col grid-cols-[repeat(53,20px)] grid-rows-[repeat(7,20px)] gap-0.75 p-1">
+		<div className='flex flex-1 justify-center pt-20'>
+			<div className='flex h-50 items-center justify-center rounded-md border border-gray-700 p-2'>
+				<div className='grid grid-flow-col grid-cols-[repeat(53,20px)] grid-rows-[repeat(7,20px)] gap-0.75 p-1'>
 					{fullDays.map((day, i) => {
 						return (
 							<div
@@ -61,7 +61,7 @@ export const Prototype = () => {
 								style={{
 									backgroundColor: day.dayNumber === null ? 'black' : 'red',
 								}}
-								className="flex items-center justify-center rounded-sm bg-rose-600 text-xs text-black"
+								className='flex items-center justify-center rounded-sm bg-rose-600 text-xs text-black'
 							>
 								{day?.dayNumber || '-'}
 							</div>
