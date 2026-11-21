@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import { returnColorIntensity, returnColorTheme } from '../../constants/themes';
 import { Icon } from '@iconify/react';
 import { Select } from '../heat-map/Select';
+import { ToolTip } from '../ToolTip';
 
 export const HeatMap2 = ({ habit }) => {
 	console.log('Habit that the heatmap got:', habit);
@@ -51,10 +52,10 @@ export const HeatMap2 = ({ habit }) => {
 								className='grid grid-flow-col
 									grid-cols-[repeat(5,var(--cell-size))]
 									grid-rows-[repeat(1,var(--cell-size))] justify-center p-1
-									[--cell-size:12px] min-[450px]:gap-[2px]
-									min-[450px]:[--cell-size:6px] sm:gap-[2px]
-									sm:[--cell-size:9px] md:gap-0.5 md:[--cell-size:11px]
-									lg:gap-0.75 lg:[--cell-size:15px] xl:[--cell-size:16px]'
+									[--cell-size:12px] min-[450px]:gap-1
+									min-[450px]:[--cell-size:6px] sm:gap-px sm:[--cell-size:9px]
+									md:gap-0.5 md:[--cell-size:11px] lg:gap-0.75
+									lg:[--cell-size:15px] xl:[--cell-size:16px]'
 							>
 								{Array.from({ length: 5 }).map((item, i) => (
 									<div
@@ -103,7 +104,7 @@ export const HeatMap2 = ({ habit }) => {
 						<div className='opacity-0'>sat</div>
 					</div>
 
-					{/* Activity blocks */}
+					{/* Days */}
 					<div
 						className='grid grid-flow-col
 							grid-cols-[repeat(53,var(--cell-size))]
@@ -126,11 +127,7 @@ export const HeatMap2 = ({ habit }) => {
 											})),
 										}));
 									}}
-									title={
-										day.dayNumber === null
-											? ''
-											: dayjs(day?.dayLabel).format('MMMM DD, YYYY')
-									}
+
 									style={{
 										backgroundColor:
 											day.dayNumber === null
@@ -139,12 +136,21 @@ export const HeatMap2 = ({ habit }) => {
 													? theme?.highlight
 													: 'var(--color-bg)',
 									}}
-									className='flex cursor-pointer items-center justify-center
-										rounded-sm border-2 border-transparent text-xs text-white
-										hover:border-white min-[450px]:rounded-[1.7px]
-										xl:rounded-[3.2px]'
+									className='group relative flex cursor-pointer items-center
+										justify-center rounded-sm border-2 border-transparent
+										text-xs text-white hover:border-white
+										min-[450px]:rounded-[1.7px] xl:rounded-[3.2px]'
 								>
 									{/* {day?.dayNumber === null ? '' : day?.dayNumber + 1} */}
+
+									<div
+										className='group-hover: invisible absolute -bottom-20 z-20
+											h-20 min-w-40 -translate-y-1.5 p-3 opacity-0 transition
+											duration-400 ease-in-out group-hover:visible
+											group-hover:translate-y-1.5 group-hover:opacity-100'
+									>
+										<ToolTip tracker={habit} day={day} />
+									</div>
 								</button>
 							);
 						})}
