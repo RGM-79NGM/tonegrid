@@ -1,10 +1,10 @@
 export const habitTypes = [
 	{
 		title: 'Checkbox',
-		value: 'CHECKBOX',
+		value: 'binary',
 	},
 	{
-		title: 'Number',
-		value: 'NUMBER',
+		title: 'Amount',
+		value: 'amount',
 	},
 ];
