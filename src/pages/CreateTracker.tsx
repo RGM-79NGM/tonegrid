@@ -73,7 +73,9 @@ export const CreateTracker = () => {
 								type='button'
 								className='flex cursor-pointer items-center justify-between gap-2 rounded-md bg-bg2 px-5 py-2'
 							>
-								<div className='flex items-center gap-2'>{newHabit?.type}</div>
+								<div className='flex items-center gap-2'>
+									{newTracker?.type}
+								</div>
 
 								<Icon icon='mdi:keyboard-arrow-down' />
 							</button>
@@ -91,7 +93,7 @@ export const CreateTracker = () => {
 									<li
 										key={habitType.value}
 										onKeyDown={() => {
-											if (habitType.value !== newHabit.type) {
+											if (habitType.value !== newTracker.type) {
 												setNewTracker((prev) => ({
 													...prev,
 													type: habitType.value,
@@ -100,7 +102,7 @@ export const CreateTracker = () => {
 											setShowTypeDropdown((prev) => !prev);
 										}}
 										onClick={() => {
-											if (habitType.value !== newHabit.type) {
+											if (habitType.value !== newTracker.type) {
 												setNewTracker((prev) => ({
 													...prev,
 													type: habitType.value,
