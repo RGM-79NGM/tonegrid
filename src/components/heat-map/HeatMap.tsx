@@ -3,22 +3,18 @@ import { useEffect, useState } from 'react';
 import { returnColorIntensity, returnColorTheme } from '../../constants/themes';
 import { ToolTip } from '../ToolTip';
 import { Select } from '../heat-map/Select.tsx';
+import { AddEntryModal } from '../modals/AddEntryModal.tsx';
 
-export const HeatMap = ({
-	tracker,
-	setShowModal,
-	setSelectedTracker,
-	setSelectedDay,
-}: any) => {
-	// const [currentHabit, setCurrentHabit] = useState(tracker);
+export const HeatMap = ({ tracker, trackers, setTrackers }: any) => {
+	const [expandedTracker, setExpandedTracker] = useState(null);
+	const [selectedTracker, setSelectedTracker] = useState(null);
+	const [selectedDay, setSelectedDay] = useState(null);
+	const [showModal, setShowModal] = useState(false);
 	const [changed, setChanged] = useState(false);
 	const [showDropdown, setShowDropdown] = useState(false);
-	const [expandedTracker, setExpandedTracker] = useState(null);
 	const theme = returnColorTheme(tracker.colorTheme);
-	// console.log('🐟 - HeatMap2 - theme:', theme);
-	console.log('🐟 - HeatMap2 - tracker:', tracker);
 
-	useEffect(() => {}, [changed]);
+	useEffect(() => {}, [selectedTracker]);
 
 	return (
 		<>
@@ -98,13 +94,6 @@ export const HeatMap = ({
 											setSelectedTracker(tracker);
 											setSelectedDay(day);
 											setShowModal(true);
-											// setCurrentHabit((prev: any) => ({
-											// 	...prev,
-											// 	days: prev.days.map((d: any, pdi: any) => ({
-											// 		...d,
-											// 		checked: pdi === i ? !d.checked : d.checked,
-											// 	})),
-											// }));
 										}}
 										style={{
 											backgroundColor:
@@ -166,6 +155,17 @@ export const HeatMap = ({
 					</div>
 				</div>
 			</div>
+
+			{/* Day Details Modal */}
+			<AddEntryModal
+				showModal={showModal}
+				setShowModal={() => setShowModal(false)}
+				selectedTracker={selectedTracker}
+				setSelectedTracker={setSelectedTracker}
+				selectedDay={selectedDay}
+				trackers={trackers}
+				setTrackers={setTrackers}
+			/>
 		</>
 	);
 };
