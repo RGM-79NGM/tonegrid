@@ -2,13 +2,11 @@ import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { generateHabitDays } from '../calculations/generateHabitDays';
 import { HeatMap } from '../components/heat-map/HeatMap';
-import { AddEntryModal } from '../components/modals/AddEntryModal';
 
 export const Home = () => {
-	const trackers = JSON.parse(localStorage.getItem('habits') || '[]');
-	const [selectedTracker, setSelectedTracker] = useState(null);
-	const [selectedDay, setSelectedDay] = useState(null);
-	const [showModal, setShowModal] = useState(false);
+	const [trackers, setTrackers] = useState(
+		JSON.parse(localStorage.getItem('habits') || '[]'),
+	);
 
 	const tempHabit = {
 		id: uuid(),
@@ -33,23 +31,14 @@ export const Home = () => {
 							<div key={tracker.id} className='w-full'>
 								<HeatMap
 									tracker={tracker}
-									setShowModal={setShowModal}
-									setSelectedTracker={setSelectedTracker}
-									setSelectedDay={setSelectedDay}
+									trackers={trackers}
+									setTrackers={setTrackers}
 								/>
 							</div>
 						))}
 					</main>
 				)}
 			</div>
-
-			{/* Day Details Modal */}
-			<AddEntryModal
-				showModal={showModal}
-				setShowModal={() => setShowModal(false)}
-				tracker={selectedTracker}
-				day={selectedDay}
-			/>
 		</>
 	);
 };
