@@ -10,7 +10,7 @@ const totalDays = Array.from({ length: 371 }, (_, i) => i); // 0 -> 370 = 371
 export function generateHabitDays() {
 	const daysNotIncluded = returnExcludedDays();
 	// console.log('🐟 - generateHabitDays - daysNotIncluded:', daysNotIncluded);
-	const habitDays = Array.from({ length: 371 }, (_, i) => i).map((item, i) => {
+	const habitDays = Array.from({ length: 371 }, (_, i) => i).map((_, i) => {
 		const isNotIncluded = daysNotIncluded.includes(i);
 
 		return {
