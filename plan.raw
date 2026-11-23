@@ -22,15 +22,12 @@ check the tracker type to show the modal(binary or amount)
 
 # Heatmap 
 ✅ add 'log today ->' button when expanding habit card
-add delete button to delete habits when heatmap is expanded
-additional info on binary habit card expanded:
-- current streak
-- total entries. i.e: 10 days
-- average
-- longest streak
+✅ add delete button to delete habits when heatmap is expanded
+✅ additional info on binary habit card expanded: current streak, total entries. i.e: 10 days, longest streak
 additional info on amount-habit card expanded:
 - Today. i.e: $10.00
 - Total. i.e: $3,231,000.000
+- average
 
 
 
