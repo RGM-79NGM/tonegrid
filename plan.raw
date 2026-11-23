@@ -18,7 +18,6 @@
 
 # Entry registration modal
 ✅ show the metric field if it's an amount type tracker 
-check the tracker type to show the modal(binary or amount)
 
 # Heatmap 
 ✅ add 'log today ->' button when expanding habit card
