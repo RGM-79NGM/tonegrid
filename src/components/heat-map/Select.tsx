@@ -17,20 +17,17 @@ export const Select = ({ showDropDown, setShowDropDown }) => {
 	];
 
 	return (
-		<div className='relative flex w-24 flex-col gap-2 lg:w-32'>
+		<div className='relative flex w-22 flex-col gap-2 md:w-28'>
 			<button
 				onClick={() => setShowDropDown((prev) => !prev)}
-				className='border-bg flex cursor-pointer items-center justify-between
-					gap-2 rounded-lg border-2 py-1 pr-3 pl-5 sm:py-1 md:py-1.5'
+				type='button'
+				className='flex cursor-pointer items-center justify-between gap-2 rounded-lg border-2 border-bg py-1 pr-3 pl-5 sm:py-1 md:py-1.5'
 			>
-				<div
-					className='flex items-center gap-2 text-xs sm:text-[13px] md:text-sm
-						lg:text-sm'
-				>
+				<div className='flex items-center gap-2 text-xs sm:text-[13px] md:text-sm lg:text-sm'>
 					{selectedDateRange}
 				</div>
 
-				<Icon icon='mdi:keyboard-arrow-down' />
+				<Icon icon='mdi:keyboard-arrow-down' className='max-[600px]:size-3' />
 			</button>
 
 			{/* Dropdown */}
@@ -39,9 +36,8 @@ export const Select = ({ showDropDown, setShowDropDown }) => {
 				className={`${
 					showDropDown
 						? 'translate-y-0 opacity-100'
-						: 'pointer-events-none -translate-y-2 bg-transparent opacity-0'
-				} bg-bg2 border-bg2 absolute top-[105%] left-0 z-10 w-[90%] rounded-md
-					border transition duration-200`}
+						: '-translate-y-2 pointer-events-none bg-transparent opacity-0'
+				} absolute top-[105%] left-0 z-10 w-[90%] rounded-md border border-bg2 bg-bg2 transition duration-200`}
 			>
 				{dateRange.map((range, i) => (
 					<li
@@ -52,9 +48,7 @@ export const Select = ({ showDropDown, setShowDropDown }) => {
 							}
 							setShowDropDown((prev) => !prev);
 						}}
-						className='bg-bg2 hover:bg-bg flex cursor-pointer items-center gap-2
-							rounded-t-md px-6 py-2 text-sm transition duration-150
-							max-sm:text-[11px]'
+						className='flex cursor-pointer items-center gap-2 rounded-t-md bg-bg2 px-6 py-2 text-sm transition duration-150 hover:bg-bg max-sm:text-[11px]'
 					>
 						{range?.label || '-'}
 					</li>
