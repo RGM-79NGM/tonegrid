@@ -136,9 +136,9 @@ export const HeatMap = ({
 					>
 						<div className='flex items-center justify-between overflow-hidden pr-10'>
 							<div className='flex w-full flex-col p-2 text-[13px] leading-tight max-[580px]:text-[9px] max-[650px]:text-[11px]'>
-								<span>Current streak: 3</span>
+								<span>Current Streak: 3</span>
 								<span>Longest streak: 20</span>
-								<span>Average: 2</span>
+								{/* <span>Average: 2</span> */}
 								<span>Total entries: 10 days</span>
 							</div>
 
