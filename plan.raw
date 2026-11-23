@@ -13,6 +13,13 @@
 ✅ choose a second font to be the main one, only use anton for the logo, and the mono font for highlights like titles   
 ✅ add the selected theme color to the new tracker when creating one 
 
+# Create-habit page
+✅ add timestamp when creating a new tracker, so they can be sorted by date
+
+# Entry registration modal
+✅ show the metric field if it's an amount type tracker 
+check the tracker type to show the modal(binary or amount)
+
 # Heatmap 
 ✅ add 'log today ->' button when expanding habit card
 add delete button to delete habits when heatmap is expanded
@@ -25,10 +32,6 @@ additional info on amount-habit card expanded:
 - Today. i.e: $10.00
 - Total. i.e: $3,231,000.000
 
-# Create-habit page
-add timestamp when creating a new tracker, so they can be sorted by date
-write register entry modal
-check the tracker type to show the modal(binary or amount)
 
 
 
