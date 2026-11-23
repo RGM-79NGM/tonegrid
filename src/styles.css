@@ -26,7 +26,7 @@
 	--color-highlight: #ec003f;
 	--color-bg: #191a1b;
 	--color-bg2: #141516;
-	--color-bg-header: ##121212;
+	--color-bg-header: #121212;
 	--color-base1: rgb(231, 234, 224);
 	--color-base2: rgb(72, 73, 75);
 	--color-base3: #413e3e;
@@ -57,6 +57,8 @@
 }
 
 body {
+	width: 100%;
+	height: 100%;
 	background-color: var(--color-bg);
 	color: var(--color-font);
 	font-family: 'Nunito', sans-serif;
