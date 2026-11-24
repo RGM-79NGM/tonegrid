@@ -25,10 +25,7 @@
 [x] add delete button to delete habits when heatmap is expanded
 [x] add this additional info on binary habit card expanded: current streak, total entries. i.e: 10 days, longest streak
 [x] Add a button to fix the tracker window on the desktop
-[] add this additional info on amount-habit card expanded:
-- Today. i.e: $10.00
-- Total. i.e: $3,231,000.000
-- average
+[x] add this additional info on amount-habit card expanded: Today. i.e: $10.00, Total. i.e: $3,231,000.000, average
 
 # Tauri desktop
 [] See if there's a way to verify if the application is running on desktop with Tauri or in the browser, so we show the pin icon only on the desktop version 
