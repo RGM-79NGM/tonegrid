@@ -7,7 +7,7 @@ const totalDays = Array.from({ length: 371 }, (_, i) => i); // 0 -> 370 = 371
 // console.log('🐟 - firstDay:', firstWeekDay);
 // console.log('🐟 - lastDay:', lastWeekDay);
 
-export function generateHabitDays() {
+export function generateBinaryTrackerDays() {
 	const daysNotIncluded = returnExcludedDays();
 	// console.log('🐟 - generateHabitDays - daysNotIncluded:', daysNotIncluded);
 	const habitDays = Array.from({ length: 371 }, (_, i) => i).map((_, i) => {
