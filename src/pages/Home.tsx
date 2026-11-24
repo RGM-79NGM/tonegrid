@@ -1,22 +1,17 @@
 import { useState } from 'react';
-import { v4 as uuid } from 'uuid';
-import { generateHabitDays } from '../calculations/generateHabitDays';
 import { HeatMap } from '../components/heat-map/HeatMap';
 
 export const Home = () => {
 	const [trackers, setTrackers] = useState(
-		JSON.parse(localStorage.getItem('habits') || '[]'),
+		JSON.parse(localStorage.getItem('trackers') || '[]'),
 	);
 
-	const tempHabit = {
-		id: uuid(),
-		name: 'Read books',
-		type: 'CHECKBOX',
-		colorTheme: 'rose',
-		days: generateHabitDays(),
-	};
-
-	console.log(tempHabit);
+	function handleDeleteTracker(trackerId) {
+		const updatedTrackers = trackers.filter((t) => t.id !== trackerId);
+		console.log('handleDeleteTracker called', updatedTrackers);
+		setTrackers(updatedTrackers);
+		localStorage.setItem('trackers', JSON.stringify(updatedTrackers));
+	}
 
 	return (
 		<>
@@ -27,12 +22,13 @@ export const Home = () => {
 					</main>
 				) : (
 					<main className='flex flex-col items-center gap-5 py-20'>
-						{trackers.map((tracker, i) => (
+						{trackers.map((tracker) => (
 							<div key={tracker.id} className='w-full'>
 								<HeatMap
 									tracker={tracker}
 									trackers={trackers}
 									setTrackers={setTrackers}
+									handleDeleteTracker={handleDeleteTracker}
 								/>
 							</div>
 						))}
