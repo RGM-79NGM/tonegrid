@@ -1,8 +1,11 @@
 import { Icon } from '@iconify/react';
 import { Fragment, useState } from 'react';
-import { returnColorIntensity, returnColorTheme } from '../../constants/themes';
-import { Select } from '../heat-map/Select.tsx';
+import {
+	returnColorIntensity,
+	returnColorTheme,
+} from '../../constants/themes.ts';
 import { AddEntryModal } from '../modals/AddEntryModal.tsx';
+import { Select } from './Select.tsx';
 import { Square } from './Square.tsx';
 
 export const HeatMap = ({
