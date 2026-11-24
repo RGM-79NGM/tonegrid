@@ -19,7 +19,7 @@ export type Theme = {
 
 export const themes: Record<string, Theme> = {
 	indigo: {
-		label: 'Indigo',
+		label: 'Plateau Indigo',
 		bg: 'hsl(210 3.8% 10.2%)',
 		bgDarker: 'hsl(210 4.8% 8.2%)',
 		text: 'hsl(78 19.2% 89.8%)',
@@ -37,7 +37,7 @@ export const themes: Record<string, Theme> = {
 		block5: 'hsl(239 84% 72%)', // + 5%
 	},
 	rose: {
-		label: 'Rose',
+		label: 'Emperor Rose',
 		bg: 'hsl(210 3.8% 10.2%)',
 		bgDarker: 'hsl(210 4.8% 8.2%)',
 		text: 'hsl(78 19.2% 89.8%)',
@@ -109,7 +109,7 @@ export const themes: Record<string, Theme> = {
 		block5: 'hsl(262 83% 70%)', // + 5%
 	},
 	pink: {
-		label: 'Pink',
+		label: 'Puffy Pink',
 		bg: 'hsl(210 3.8% 10.2%)',
 		bgDarker: 'hsl(210 4.8% 8.2%)',
 		text: 'hsl(78 19.2% 89.8%)',
@@ -127,7 +127,7 @@ export const themes: Record<string, Theme> = {
 		block5: 'hsl(330 85% 63%)', // + 5%
 	},
 	cyan: {
-		label: 'Cyan',
+		label: 'Crystal Cyan',
 		bg: 'hsl(210 3.8% 10.2%)',
 		bgDarker: 'hsl(210 4.8% 8.2%)',
 		text: 'hsl(78 19.2% 89.8%)',
