@@ -26,7 +26,8 @@
 
 # Entry registration modal
 [x] show the metric field if it's an amount type tracker 
-[] check if the metric is of type 1, so it displays the amount field 
+[x] check if the metric is of type 1, so it displays the amount field 
+[] keep the square colors in the day object, and just update it in the AddEntry component
 [] if the day is already checked, show the delete button for binary tracker
 [] if the day already has some amount, let the user edit and save, or remove it
 [] if the user sets the day amount to 0, it's equivalent to removing the day entry
