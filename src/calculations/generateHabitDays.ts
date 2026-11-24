@@ -25,7 +25,7 @@ export function generateHabitDays() {
 			notes: '',
 		};
 	});
-	console.log('🐟 - generateHabitDays - habitDays:', habitDays);
+	// console.log('🐟 - generateHabitDays - habitDays:', habitDays);
 
 	return habitDays;
 }
@@ -48,7 +48,7 @@ export function generateAmountTrackerDays() {
 			notes: '',
 		};
 	});
-	console.log('🐟 - generateHabitDays - habitDays:', habitDays);
+	// console.log('🐟 - generateHabitDays - habitDays:', habitDays);
 
 	return habitDays;
 }
