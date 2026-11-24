@@ -145,6 +145,17 @@ export const HeatMap = ({ tracker, trackers, setTrackers }: any) => {
 
 								<button
 									type='button'
+									title='Pin to your desktop'
+									className='cursor-pointer rounded-full p-1.75 transition duration-200 hover:bg-white/10'
+								>
+									<Icon
+										icon='akar-icons:pin'
+										className='size-4 min-[700px]:size-4.5'
+									/>
+								</button>
+
+								<button
+									type='button'
 									className='flex cursor-pointer gap-2 whitespace-nowrap rounded-md bg-white/20 px-4 py-2 text-xs transition duration-300 *:items-center hover:bg-white/30 min-[750px]:text-base'
 								>
 									Log today
