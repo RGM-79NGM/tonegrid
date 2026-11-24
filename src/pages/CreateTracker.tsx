@@ -14,9 +14,14 @@ interface Tracker {
 	id?: string;
 	name?: string;
 	metric?: string;
+	average?: number;
 	type?: number;
 	colorTheme?: string;
 	days?: object[];
+	level1: number;
+	level2: number;
+	level3: number;
+	level4: number;
 }
 
 export const CreateTracker = () => {
@@ -25,9 +30,14 @@ export const CreateTracker = () => {
 		id: uuidv4(),
 		name: '',
 		metric: '',
+		average: 0,
 		type: habitTypes[0].id, // 0 = binary; 1 = amount;
 		colorTheme: Object.keys(themes)[0],
 		days: [],
+		level1: 0,
+		level2: 0,
+		level3: 0,
+		level4: 0,
 	});
 	const [showColorDropdown, setShowColorDropdown] = useState(false);
 	const [showTypeDropdown, setShowTypeDropdown] = useState(false);
