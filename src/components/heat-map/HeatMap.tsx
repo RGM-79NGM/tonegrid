@@ -124,12 +124,21 @@ export const HeatMap = ({ tracker, trackers, setTrackers }: any) => {
 						} `}
 					>
 						<div className='flex items-center justify-between overflow-hidden pr-10'>
-							<div className='flex w-full flex-col p-2 text-[13px] leading-tight max-[580px]:text-[9px] max-[650px]:text-[11px]'>
-								<span>Current Streak: 3</span>
-								<span>Longest streak: 20</span>
-								{/* <span>Average: 2</span> */}
-								<span>Total entries: 10 days</span>
-							</div>
+							{tracker.type === 0 ? (
+								<div className='flex w-full flex-col p-2 text-[13px] leading-tight max-[580px]:text-[9px] max-[650px]:text-[11px]'>
+									<span>Current Streak: 3</span>
+									<span>Longest streak: 20</span>
+									{/* <span>Average: 2</span> */}
+									<span>Total entries: 10 days</span>
+								</div>
+							) : (
+								<div className='flex w-full flex-col p-2 text-[13px] leading-tight max-[580px]:text-[9px] max-[650px]:text-[11px] max-[700px]:text-xs'>
+									<span>Today: $10.00</span>
+									<span>Average: $21.00</span>
+									<span>Current streak: 5</span>
+									<span>Total: $3,231,000.000</span>
+								</div>
+							)}
 
 							<div className='flex items-center gap-2'>
 								<button

@@ -15,7 +15,7 @@
 
 # Create-habit page
 [x] add timestamp when creating a new tracker, so they can be sorted by date
-[] change the fields if changing the tracker type
+[x] change the fields if changing the tracker type
 
 # Entry registration modal
 [x] show the metric field if it's an amount type tracker 
