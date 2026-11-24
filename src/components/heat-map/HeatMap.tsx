@@ -1,9 +1,9 @@
 import { Icon } from '@iconify/react';
-import { useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { returnColorIntensity, returnColorTheme } from '../../constants/themes';
-import { ToolTip } from '../ToolTip';
 import { Select } from '../heat-map/Select.tsx';
 import { AddEntryModal } from '../modals/AddEntryModal.tsx';
+import { Square } from './Square.tsx';
 
 export const HeatMap = ({
 	tracker,
@@ -18,8 +18,8 @@ export const HeatMap = ({
 	const [changed, setChanged] = useState(false);
 	const [showDropdown, setShowDropdown] = useState(false);
 	const theme = returnColorTheme(tracker.colorTheme);
-
 	// useEffect(() => {}, [selectedTracker]);
+	console.log('tracker: ', tracker);
 
 	return (
 		<>
@@ -92,30 +92,17 @@ export const HeatMap = ({
 						<div className='grid grid-flow-col grid-cols-[repeat(53,var(--cell-size))] grid-rows-[repeat(7,var(--cell-size))] justify-center p-1 [--cell-size:12px] sm:gap-0.5 md:gap-0.5 lg:gap-0.75 xl:gap-1 min-[450px]:gap-0.5 sm:[--cell-size:9px] md:[--cell-size:11px] lg:[--cell-size:15px] xl:[--cell-size:15px] min-[450px]:[--cell-size:6px]'>
 							{tracker?.days?.map((day: any, i: any) => {
 								return (
-									<button
-										type='button'
-										key={day?.dayIndex}
-										onClick={() => {
-											setSelectedTracker(tracker);
-											setSelectedDay(day);
-											setShowModal(true);
-										}}
-										style={{
-											backgroundColor:
-												day.dayNumber === null
-													? 'transparent'
-													: day?.checked
-														? theme?.highlight
-														: 'var(--color-bg)',
-										}}
-										className='group relative flex cursor-pointer items-center justify-center rounded-sm border-2 border-transparent text-white text-xs hover:border-white xl:rounded-[3.2px] min-[450px]:rounded-[1.7px]'
-									>
-										{/* {day?.dayNumber === null ? '' : day?.dayNumber + 1} */}
-
-										<div className='group-hover: -bottom-20 -translate-y-1.5 invisible absolute z-20 h-20 min-w-40 p-3 opacity-0 transition duration-400 ease-in-out group-hover:visible group-hover:translate-y-1.5 group-hover:opacity-100'>
-											<ToolTip tracker={tracker} day={day} />
-										</div>
-									</button>
+									<Fragment key={day.dayIndex}>
+										<Square
+											key={day?.dayIndex}
+											day={day}
+											tracker={tracker}
+											theme={theme}
+											setSelectedTracker={setSelectedTracker}
+											setSelectedDay={setSelectedDay}
+											setShowModal={setShowModal}
+										/>
+									</Fragment>
 								);
 							})}
 						</div>
@@ -183,6 +170,7 @@ export const HeatMap = ({
 			</div>
 
 			{/* Day Details Modal */}
+			{/* {showModal && ( */}
 			<AddEntryModal
 				showModal={showModal}
 				hideModal={() => {
@@ -197,6 +185,7 @@ export const HeatMap = ({
 				trackers={trackers}
 				setTrackers={setTrackers}
 			/>
+			{/* )} */}
 		</>
 	);
 };
