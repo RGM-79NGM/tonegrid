@@ -3,7 +3,10 @@ import dayjs from 'dayjs';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { generateHabitDays } from '../calculations/generateHabitDays';
+import {
+	generateAmountTrackerDays,
+	generateBinaryTrackerDays,
+} from '../calculations/generateHabitDays';
 import { habitTypes } from '../constants/habitTypes';
 import { themes } from '../constants/themes';
 
@@ -24,7 +27,7 @@ export const CreateTracker = () => {
 		metric: '',
 		type: habitTypes[0].id, // 0 = binary; 1 = amount;
 		colorTheme: Object.keys(themes)[0],
-		days: generateHabitDays(),
+		days: [],
 	});
 	const [showColorDropdown, setShowColorDropdown] = useState(false);
 	const [showTypeDropdown, setShowTypeDropdown] = useState(false);
@@ -46,12 +49,23 @@ export const CreateTracker = () => {
 
 	function handleSave() {
 		if (!validate()) return;
+
+		const generatedDays =
+			newTracker.type === 0
+				? generateBinaryTrackerDays()
+				: generateAmountTrackerDays();
 		const timestamp = dayjs().format('YYYY-MM-DD HH:mm:ss');
-		const finalData = { ...newTracker, createAt: timestamp };
+
+		const finalData = {
+			...newTracker,
+			days: generatedDays,
+			createAt: timestamp,
+		};
+
 		console.log('New tracker ready to be stored: ', finalData);
-		const currentHabits = JSON.parse(localStorage.getItem('habits') || '[]');
+		const currentHabits = JSON.parse(localStorage.getItem('trackers') || '[]');
 		const mergedHabits = [...currentHabits, finalData];
-		localStorage.setItem('habits', JSON.stringify(mergedHabits));
+		localStorage.setItem('trackers', JSON.stringify(mergedHabits));
 
 		navigate('/');
 	}
