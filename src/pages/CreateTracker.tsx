@@ -4,29 +4,33 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { generateHabitDays } from '../calculations/generateHabitDays';
-import { habitTypes } from '../constants/habitType';
+import { habitTypes } from '../constants/habitTypes';
 import { themes } from '../constants/themes';
 
 interface Tracker {
 	id?: string;
 	name?: string;
+	metric?: string;
+	type?: number;
 	colorTheme?: string;
 	days?: object[];
-	type?: string;
 }
 
 export const CreateTracker = () => {
 	const navigate = useNavigate();
 	const [newTracker, setNewTracker] = useState<Tracker>({
 		id: uuidv4(),
+		name: '',
+		metric: '',
+		type: habitTypes[0].id, // 0 = binary; 1 = amount;
 		colorTheme: Object.keys(themes)[0],
 		days: generateHabitDays(),
-		type: habitTypes[0].value,
 	});
 	const [showColorDropdown, setShowColorDropdown] = useState(false);
 	const [showTypeDropdown, setShowTypeDropdown] = useState(false);
 	const [errors, setErrors] = useState({
 		name: '',
+		metric: '',
 		type: '',
 	});
 
@@ -66,7 +70,7 @@ export const CreateTracker = () => {
 				{/* Fields */}
 				<div className='*:bg- grid w-full grid-rows-[repeat(3,1fr)_auto] gap-8 p-[5%]'>
 					<div className='flex flex-col gap-1'>
-						Habit Type
+						Tracker Type
 						<div className='relative flex flex-col gap-2'>
 							<button
 								onClick={() => setShowTypeDropdown((prev) => !prev)}
@@ -74,7 +78,7 @@ export const CreateTracker = () => {
 								className='flex cursor-pointer items-center justify-between gap-2 rounded-md bg-bg2 px-5 py-2'
 							>
 								<div className='flex items-center gap-2'>
-									{newTracker?.type}
+									<span className=''>{habitTypes[newTracker?.type]?.name}</span>
 								</div>
 
 								<Icon icon='mdi:keyboard-arrow-down' />
@@ -89,30 +93,33 @@ export const CreateTracker = () => {
 										: `-translate-y-2 pointer-events-none bg-transparent opacity-0`
 								} absolute top-[105%] left-0 z-10 w-[90%] rounded-md border border-bg2 bg-bg2 transition duration-200`}
 							>
-								{habitTypes.map((habitType, i) => (
+								{habitTypes.map((habitType) => (
 									<li
-										key={habitType.value}
+										key={habitType.id}
 										onKeyDown={() => {
-											if (habitType.value !== newTracker.type) {
+											if (habitType.id !== newTracker.type) {
 												setNewTracker((prev) => ({
 													...prev,
-													type: habitType.value,
+													type: habitType.id,
 												}));
 											}
 											setShowTypeDropdown((prev) => !prev);
 										}}
 										onClick={() => {
-											if (habitType.value !== newTracker.type) {
+											if (habitType.id !== newTracker.type) {
 												setNewTracker((prev) => ({
 													...prev,
-													type: habitType.value,
+													type: habitType.id,
 												}));
 											}
 											setShowTypeDropdown((prev) => !prev);
 										}}
 										className='flex cursor-pointer items-center gap-2 rounded-t-md bg-bg2 px-6 py-2 text-base1 transition duration-150 hover:bg-bg'
 									>
-										{habitType.title}
+										<span>{habitType.name}</span>
+										<span className='text-base2 text-xs'>
+											{habitType.description}
+										</span>
 									</li>
 								))}
 							</ul>
@@ -120,7 +127,7 @@ export const CreateTracker = () => {
 					</div>
 
 					<div className='relative flex flex-col gap-1'>
-						Enter a title for your habit
+						Enter a title for your tracker
 						<input
 							value={newTracker?.name}
 							onChange={(e) =>
@@ -128,7 +135,7 @@ export const CreateTracker = () => {
 							}
 							type='text'
 							onFocus={() => setErrors((prev) => ({ ...prev, name: '' }))}
-							className='rounded-md bg-bg2 px-4 py-2 text-base1'
+							className='rounded-md bg-bg2 px-4 py-2 text-base1 outline-0'
 						/>
 						{/* Warning block */}
 						<div
@@ -146,7 +153,36 @@ export const CreateTracker = () => {
 						</div>
 					</div>
 
-					{/* Select the theme */}
+					{newTracker.type === 1 && (
+						<div className='relative flex flex-col gap-1'>
+							Enter a metric for your tracker (e.g. hour, mile, $)
+							<input
+								value={newTracker?.metric}
+								onChange={(e) =>
+									setNewTracker((prev) => ({ ...prev, metric: e.target.value }))
+								}
+								type='text'
+								onFocus={() => setErrors((prev) => ({ ...prev, name: '' }))}
+								className='rounded-md bg-bg2 px-4 py-2 text-base1 outline-0'
+							/>
+							{/* Warning block */}
+							<div
+								className={`${
+									errors.metric
+										? 'translate-y-0 opacity-100'
+										: `-translate-y-2 pointer-events-none bg-transparent opacity-0`
+								} absolute top-[123%] left-[30%] flex items-center gap-2 rounded-sm bg-white p-3 font-semibold text-sm transition duration-200`}
+							>
+								<div className='absolute top-[-19%] size-4.5 rotate-45 bg-white' />
+								<div className='flex items-center justify-center rounded-sm bg-orange-600 p-1'>
+									<Icon icon='material-symbols:error' className='text-white' />
+								</div>
+								<div className='text-zinc-800'>{errors?.metric || '-'}</div>
+							</div>
+						</div>
+					)}
+
+					{/* Select the color theme */}
 					<div className='flex flex-col gap-1'>
 						Pick a color
 						<div className='relative flex flex-col gap-2'>
@@ -175,7 +211,7 @@ export const CreateTracker = () => {
 									showColorDropdown
 										? 'translate-y-0 opacity-100'
 										: `-translate-y-2 pointer-events-none bg-transparent opacity-0`
-								} absolute top-[105%] left-0 w-[90%] rounded-md border border-bg2 bg-bg2 transition duration-200`}
+								} absolute top-[105%] left-0 grid w-[90%] grid-cols-2 rounded-md border border-bg2 bg-bg2 transition duration-200`}
 							>
 								{Object.entries(themes).map(([name, theme]) => (
 									<li
@@ -219,7 +255,7 @@ export const CreateTracker = () => {
 							type='button'
 							className='cursor-pointer rounded-md bg-highlight px-10 py-3 font-semibold text-black transition duration-200 hover:brightness-110'
 						>
-							Create Habit
+							Create tracker
 						</button>
 					</div>
 				</div>
