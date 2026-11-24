@@ -1,34 +1,37 @@
 ## home-page
-✅ change the header logo to a cross beside the app name: <logo><Mapple>
-✅ create the header component that appears everywhere
-✅ add a searchbar at the top to search habits
-✅ on the right side add 3 buttons: reorder, create habit, trackerlist
-✅ add user button with the user name on the right corner
-✅ decrease lateral padding(5-10) in the main body 
-✅ design the footer on tldraw; create the footer component
-✅ add the prettier config and install prettier plugins to sort tailwind classes and css
-✅ change the highlight color to rose akashi
-✅ fix the text proportion in map card 
-✅ style scrollbar 
-✅ choose a second font to be the main one, only use anton for the logo, and the mono font for highlights like titles   
-✅ add the selected theme color to the new tracker when creating one 
+[x] change the header logo to a cross beside the app name: <logo><Mapple>
+[x] create the header component that appears everywhere
+[x] add a searchbar at the top to search habits
+[x] on the right side add 3 buttons: reorder, create habit, trackerlist
+[x] add user button with the user name on the right corner
+[x] decrease lateral padding(5-10) in the main body 
+[x] design the footer on tldraw; create the footer component
+[x] add the prettier config and install prettier plugins to sort tailwind classes and css
+[x] change the highlight color to rose akashi
+[x] fix the text proportion in map card 
+[x] style scrollbar 
+[x] choose a second font to be the main one, only use anton for the logo, and the mono font for highlights like titles   
+[x] add the selected theme color to the new tracker when creating one 
 
 # Create-habit page
-✅ add timestamp when creating a new tracker, so they can be sorted by date
+[x] add timestamp when creating a new tracker, so they can be sorted by date
+[] change the fields if changing the tracker type
 
 # Entry registration modal
-✅ show the metric field if it's an amount type tracker 
+[x] show the metric field if it's an amount type tracker 
 
 # Heatmap 
-✅ add 'log today ->' button when expanding habit card
-✅ add delete button to delete habits when heatmap is expanded
-✅ add this additional info on binary habit card expanded: current streak, total entries. i.e: 10 days, longest streak
-add this additional info on amount-habit card expanded:
+[x] add 'log today ->' button when expanding habit card
+[x] add delete button to delete habits when heatmap is expanded
+[x] add this additional info on binary habit card expanded: current streak, total entries. i.e: 10 days, longest streak
+[x] Add a button to fix the tracker window on the desktop
+[] add this additional info on amount-habit card expanded:
 - Today. i.e: $10.00
 - Total. i.e: $3,231,000.000
 - average
 
-
+# Tauri desktop
+[] See if there's a way to verify if the application is running on desktop with Tauri or in the browser, so we show the pin icon only on the desktop version 
 
 
 
