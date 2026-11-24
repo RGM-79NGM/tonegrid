@@ -5,7 +5,12 @@ import { ToolTip } from '../ToolTip';
 import { Select } from '../heat-map/Select.tsx';
 import { AddEntryModal } from '../modals/AddEntryModal.tsx';
 
-export const HeatMap = ({ tracker, trackers, setTrackers }: any) => {
+export const HeatMap = ({
+	tracker,
+	trackers,
+	setTrackers,
+	handleDeleteTracker,
+}: any) => {
 	const [expandedTracker, setExpandedTracker] = useState(null);
 	const [selectedTracker, setSelectedTracker] = useState(null);
 	const [selectedDay, setSelectedDay] = useState(null);
@@ -14,7 +19,7 @@ export const HeatMap = ({ tracker, trackers, setTrackers }: any) => {
 	const [showDropdown, setShowDropdown] = useState(false);
 	const theme = returnColorTheme(tracker.colorTheme);
 
-	useEffect(() => {}, [selectedTracker]);
+	// useEffect(() => {}, [selectedTracker]);
 
 	return (
 		<>
@@ -148,6 +153,7 @@ export const HeatMap = ({ tracker, trackers, setTrackers }: any) => {
 								>
 									<Icon
 										icon='akar-icons:trash-can'
+										onClick={() => handleDeleteTracker(tracker.id)}
 										className='size-4 min-[700px]:size-4.5'
 									/>
 								</button>
@@ -179,10 +185,15 @@ export const HeatMap = ({ tracker, trackers, setTrackers }: any) => {
 			{/* Day Details Modal */}
 			<AddEntryModal
 				showModal={showModal}
-				setShowModal={() => setShowModal(false)}
+				hideModal={() => {
+					setShowModal(false);
+					setSelectedDay(null);
+					setSelectedTracker(null);
+				}}
 				selectedTracker={selectedTracker}
 				setSelectedTracker={setSelectedTracker}
 				selectedDay={selectedDay}
+				setSelectedDay={setSelectedDay}
 				trackers={trackers}
 				setTrackers={setTrackers}
 			/>

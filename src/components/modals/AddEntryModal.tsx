@@ -4,14 +4,18 @@ import { themes } from '../../constants/themes.ts';
 
 export const AddEntryModal = ({
 	showModal,
-	setShowModal,
+	hideModal,
 	selectedTracker,
-	setSelectedTracker,
+	// setSelectedTracker,
 	trackers,
 	setTrackers,
 	selectedDay,
+	setSelectedDay,
 }: any) => {
-	console.log('those are the trackers: ', trackers);
+	console.log('this is the selectedTracker: ', selectedTracker);
+	console.log('This is the selectedDay:', selectedDay);
+
+	// console.log('those are the trackers: ', trackers);
 	const colorTheme = selectedTracker
 		? themes[selectedTracker.colorTheme]
 		: themes.terminal;
@@ -19,10 +23,9 @@ export const AddEntryModal = ({
 	function handleSave() {
 		const updatedTracker = {
 			...selectedTracker,
-			days: selectedTracker.days.map((d: any) => ({
-				...d,
-				checked: d.dayLabel === selectedDay.dayLabel ? !d.checked : d.checked,
-			})),
+			days: selectedTracker.days.map((d: any) =>
+				d.dayLabel !== selectedDay.dayLabel ? d : selectedDay,
+			),
 		};
 
 		const updatedTrackers = trackers.map((trk: any) => {
@@ -39,15 +42,8 @@ export const AddEntryModal = ({
 
 		setTrackers(updatedTrackers);
 
-		// setSelectedTracker((prev: any) => ({
-		// 	...prev,
-		// 	days: prev.days.map((d: any) => ({
-		// 		...d,
-		// 		checked: d.dayIndex === selectedDay.dayIndex ? !d.checked : d.checked,
-		// 	})),
-		// }));
 		console.log('this is the updated value: ', updatedTracker.days);
-		setShowModal(false);
+		hideModal(false);
 	}
 
 	useEffect(() => {
@@ -56,14 +52,14 @@ export const AddEntryModal = ({
 		const handleKeyDown = (e: KeyboardEvent) => {
 			if (e.key === 'Escape') {
 				if (e.key === 'Escape') {
-					setShowModal(false);
+					hideModal();
 				}
 			}
 		};
 
 		window.addEventListener('keydown', handleKeyDown);
 		return () => window.removeEventListener('keydown', handleKeyDown);
-	}, [showModal, setShowModal]);
+	}, [showModal, hideModal]);
 
 	return (
 		<div
@@ -82,7 +78,7 @@ export const AddEntryModal = ({
 					</span>
 					<button
 						type='button'
-						onClick={() => setShowModal(false)}
+						onClick={() => hideModal()}
 						className='hover:-translate-y-0.5 cursor-pointer rounded-md bg-white/10 px-0.75 py-px font-medium text-sm transition duration-150'
 					>
 						Esc
@@ -97,14 +93,21 @@ export const AddEntryModal = ({
 						</div>
 					</div>
 
-					{selectedTracker?.type === 'binary' && (
+					{selectedTracker?.type === 1 && (
 						<div className='flex items-center gap-5'>
 							<div className='mr-0 font-normal'>
-								Test{selectedTracker?.metric}s:
+								{selectedTracker?.metric}s:
 							</div>
 
 							<div className='rounded-md p-3'>
 								<input
+									value={selectedDay.amount}
+									onChange={(e) =>
+										setSelectedDay((prev) => ({
+											...prev,
+											amount: e.target.value,
+										}))
+									}
 									placeholder={`Today's amount of ${selectedTracker?.metric ? `${selectedTracker?.metric}s` : '-'}`}
 									className='w-full resize-none outline-0'
 								/>
@@ -116,6 +119,10 @@ export const AddEntryModal = ({
 						<h3>Notes:</h3>
 						<div className='mt-2 p-3'>
 							<textarea
+								value={selectedDay?.notes}
+								onChange={(e) =>
+									setSelectedDay((prev) => ({ ...prev, notes: e.target.value }))
+								}
 								rows={5}
 								placeholder={`Today's notes...`}
 								className='w-full resize-none outline-0'
