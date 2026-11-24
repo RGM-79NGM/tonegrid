@@ -21,6 +21,47 @@ export const AddEntryModal = ({
 	// console.log('selectedTracker: ', selectedTracker);
 	// console.log('originalDay:', trueOriginalDay);
 	// console.log('selectedDay:', selectedDay);
+
+	function calculateBlockColor(someDay: any, completeTracker: any) {
+		console.log('CompleteTracker: ', completeTracker);
+
+		if (completeTracker.type === 1) {
+			let squareColor: any;
+			console.log('someDay: ', someDay);
+
+			if (someDay.dayNumber === null) {
+				squareColor = 'transparent';
+			} else if (someDay.amount === 0) {
+				squareColor = 'var(--color-bg)';
+			} else if (!completeTracker.level4) {
+				squareColor = colorTheme.block4;
+			} else if (
+				someDay.amount <= completeTracker.level4 &&
+				someDay.amount > completeTracker.level3
+			) {
+				squareColor = colorTheme.block4;
+			} else if (
+				someDay.amount <= completeTracker.level3 &&
+				someDay.amount > completeTracker.level2
+			) {
+				squareColor = colorTheme.block3;
+			} else if (
+				someDay.amount <= completeTracker.level2 &&
+				someDay.amount > completeTracker.level1
+			) {
+				squareColor = colorTheme.block2;
+			} else if (
+				someDay.amount <= completeTracker.level1 &&
+				someDay.amount > 0
+			) {
+				squareColor = colorTheme.block1;
+			} else {
+				squareColor = 'var(--color-bg)';
+			}
+			return squareColor;
+		}
+	}
+
 	function handleSave() {
 		let updatedTracker = {
 			...selectedTracker,
@@ -44,13 +85,18 @@ export const AddEntryModal = ({
 			// 1. Find the maximum
 			daysWithAmount.map((d) => {
 				if (maximum === 0) {
-					maximum = Number(d);
+					if (!d || d === 0) {
+						console.log("There's no freaking maximum!", d);
+						maximum = selectedDay.amount;
+					} else {
+						maximum = Number(d);
+					}
 				} else if (maximum < d) {
 					maximum = Number(d);
 				}
 			});
 
-			console.log(maximum);
+			console.log('😈 maximum: ', maximum);
 
 			// 2. Define 4 levels 25% over the maxium, in decreasing order
 			const level4 = maximum; // 100%
@@ -80,6 +126,14 @@ export const AddEntryModal = ({
 			console.log('The sum: ', sum);
 			console.log('The average: ', average);
 		}
+
+		updatedTracker = {
+			...updatedTracker,
+			days: updatedTracker.days.map((d) => ({
+				...d,
+				blockColor: calculateBlockColor(d, updatedTracker),
+			})),
+		};
 
 		const updatedTrackers = trackers.map((trk: any) => {
 			let trackerToReturn: any;

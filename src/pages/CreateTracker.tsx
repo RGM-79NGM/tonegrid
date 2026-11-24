@@ -72,7 +72,7 @@ export const CreateTracker = () => {
 			createAt: timestamp,
 		};
 
-		console.log('New tracker ready to be stored: ', finalData);
+		// console.log('New tracker ready to be stored: ', finalData);
 		const currentHabits = JSON.parse(localStorage.getItem('trackers') || '[]');
 		const mergedHabits = [...currentHabits, finalData];
 		localStorage.setItem('trackers', JSON.stringify(mergedHabits));

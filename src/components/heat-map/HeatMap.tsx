@@ -22,7 +22,9 @@ export const HeatMap = ({
 	const [showDropdown, setShowDropdown] = useState(false);
 	const theme = returnColorTheme(tracker.colorTheme);
 	// useEffect(() => {}, [selectedTracker]);
-	console.log('tracker: ', tracker);
+	// console.log('tracker: ', tracker);
+
+	// console.log('theme ', theme);
 
 	return (
 		<>
@@ -97,7 +99,6 @@ export const HeatMap = ({
 								return (
 									<Fragment key={day.dayIndex}>
 										<Square
-											key={day?.dayIndex}
 											day={day}
 											tracker={tracker}
 											theme={theme}
