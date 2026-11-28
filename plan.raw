@@ -1,3 +1,13 @@
+# Tasks:
+
+[] keep the square colors in the day object, and update all blocks with a map function when saving/update a new entry in AddEntryModal component
+[] if the day is already checked, show the delete button for binary tracker
+[] if the day already has some amount, let the user edit and save, or remove it
+[] if the user sets the day amount to 0, it's equivalent to removing the day entry
+
+# Tauri desktop
+[] See if there's a way to verify if the application is running on desktop with Tauri or in the browser, so we show the pin icon only on the desktop version 
+
 ## home-page
 [x] change the header logo to a cross beside the app name: <logo><Mapple>
 [x] create the header component that appears everywhere
@@ -27,14 +37,6 @@
 # Entry registration modal
 [x] show the metric field if it's an amount type tracker 
 [x] check if the metric is of type 1, so it displays the amount field
-
-[] keep the square colors in the day object, and update all blocks with a map function when saving/update a new entry in AddEntryModal component
-[] if the day is already checked, show the delete button for binary tracker
-[] if the day already has some amount, let the user edit and save, or remove it
-[] if the user sets the day amount to 0, it's equivalent to removing the day entry
-
-# Tauri desktop
-[] See if there's a way to verify if the application is running on desktop with Tauri or in the browser, so we show the pin icon only on the desktop version 
 
 
 
